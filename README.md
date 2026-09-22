@@ -1,6 +1,3 @@
-# ⚔️ GitHub Profile Finder
-
-A web application that allows users to search for GitHub profiles and view public profile information using the GitHub API.
 
 ## 📸 Preview
 
