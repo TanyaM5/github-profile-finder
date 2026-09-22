@@ -2,6 +2,12 @@
 
 A web application that allows users to search for GitHub profiles and view public profile information using the GitHub API.
 
+## 📸 Preview
+
+![GitHub Profile Finder Screenshot](screenshot.png)
+
+A web application that allows users to search for GitHub profiles and view public profile information using the GitHub API.
+
 ## 🚀 Features
 
 - Search for GitHub users
