@@ -1,16 +1,3 @@
-{% if user["created_at"] %}
-    <p>
-        📅 Joined GitHub:
-        {{ user["created_at"][:10] }}
-    </p>
-{% endif %}<p class="name">
-    {{ user["name"] or "No name provided" }}
-</p>
-
-<p>
-    {{ user["bio"] or "No bio provided." }}
-</p>
-
 <div class="details">
 
     {% if user["location"] %}
@@ -30,11 +17,12 @@
         </p>
     {% endif %}
 
-    <p>
-        📅 Joined GitHub:
-        {{ user["created_at"][:10] }}
-    </p>
-
+    {% if user and user["created_at"] %}
+        <p>
+            📅 Joined GitHub:
+            {{ user["created_at"][:10] }}
+        </p>
+    {% endif %}
 </div>
 <a
     class="github-link"
