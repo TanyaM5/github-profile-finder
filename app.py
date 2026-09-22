@@ -18,9 +18,22 @@ def get_github_user(username):
         return None
 
 
+def get_github_repositories(username):
+    url = f"https://api.github.com/users/{username}/repos?sort=updated&per_page=5"
+
+    try:
+        response = urllib.request.urlopen(url)
+        data = json.loads(response.read())
+        return data
+
+    except urllib.error.HTTPError:
+        return []
+
+
 @app.route("/", methods=["GET", "POST"])
 def home():
     user = None
+    repositories = []
     error = None
 
     if request.method == "POST":
@@ -30,10 +43,13 @@ def home():
 
         if user is None:
             error = "GitHub user not found."
+        else:
+            repositories = get_github_repositories(username)
 
     return render_template(
         "index.html",
         user=user,
+        repositories=repositories,
         error=error
     )
 

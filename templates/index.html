@@ -36,3 +36,70 @@
     </p>
 
 </div>
+<a
+    class="github-link"
+    href="{{ user['html_url'] }}"
+    target="_blank"
+>
+    View GitHub Profile
+</a>
+<h3 class="repositories-title">📂 Latest Repositories</h3>
+
+<div class="repositories">
+
+    {% for repo in repositories %}
+
+        <div class="repository">
+
+            <h4>{{ repo["name"] }}</h4>
+
+            <p>
+                {{ repo["description"] or "No description provided." }}
+            </p>
+
+            <div class="repo-info">
+                <span>⭐ {{ repo["stargazers_count"] }}</span>
+                <span>🍴 {{ repo["forks_count"] }}</span>
+                <span>💻 {{ repo["language"] or "Not specified" }}</span>
+            </div>
+
+            <a
+                href="{{ repo['html_url'] }}"
+                target="_blank"
+                class="repo-link"
+            >
+                View Repository →
+            </a>
+
+        </div>
+
+<form method="POST" onsubmit="showLoading()">
+
+    <input
+        type="text"
+        name="username"
+        placeholder="Enter GitHub username"
+        autocomplete="off"
+        required
+    >
+
+    <button type="submit" id="search-button">
+        Search
+    </button>
+
+</form>
+
+<p id="loading" class="loading">
+    🔎 Searching GitHub...
+</p>    {% endfor %}
+
+</div>
+<script>
+    function showLoading() {
+        document.getElementById("loading").style.display = "block";
+
+        const button = document.getElementById("search-button");
+        button.disabled = true;
+        button.textContent = "Searching...";
+    }
+</script>
