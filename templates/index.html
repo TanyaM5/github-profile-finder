@@ -1,35 +1,12 @@
-<div class="details">
-
-    {% if user["location"] %}
-        <p>📍 {{ user["location"] }}</p>
-    {% endif %}
-
-    {% if user["company"] %}
-        <p>🏢 {{ user["company"] }}</p>
-    {% endif %}
-
-    {% if user["blog"] %}
-        <p>
-            🔗
-            <a href="{{ user['blog'] }}" target="_blank">
-                Website
-            </a>
-        </p>
-    {% endif %}
-
-    {% if user and user["created_at"] %}
-        <p>
-            📅 Joined GitHub:
-            {{ user["created_at"][:10] }}
-        </p>
-    {% endif %}
-</div>
 <a
     class="github-link"
     href="{{ user['html_url'] }}"
     target="_blank"
 >
     View GitHub Profile
+</a>
+
+<h3 class="repositories-title">📂 Latest Repositories</h3>
 </a>
 <h3 class="repositories-title">📂 Latest Repositories</h3>
 
